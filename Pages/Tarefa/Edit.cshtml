@@ -1,0 +1,50 @@
+﻿@page
+@model OrganizadorTarefas.Pages.Tarefa.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Tarefas</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Tarefas.Id" />
+            <div class="form-group">
+                <label asp-for="Tarefas.codUfcd" class="control-label"></label>
+                <input asp-for="Tarefas.codUfcd" class="form-control" />
+                <span asp-validation-for="Tarefas.codUfcd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tarefas.nomeUfcd" class="control-label"></label>
+                <input asp-for="Tarefas.nomeUfcd" class="form-control" />
+                <span asp-validation-for="Tarefas.nomeUfcd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tarefas.descricao" class="control-label"></label>
+                <input asp-for="Tarefas.descricao" class="form-control" />
+                <span asp-validation-for="Tarefas.descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tarefas.dataEntrega" class="control-label"></label>
+                <input asp-for="Tarefas.dataEntrega" class="form-control" />
+                <span asp-validation-for="Tarefas.dataEntrega" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

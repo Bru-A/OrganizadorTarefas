@@ -1,0 +1,54 @@
+﻿@page
+@model OrganizadorTarefas.Pages.Tarefa.IndexModel
+
+@{
+    ViewData["Title"] = "Tarefas";
+}
+
+
+
+<p>
+    <a asp-page="Create">Adicionar nova tarefa</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tarefas[0].codUfcd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tarefas[0].nomeUfcd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tarefas[0].descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tarefas[0].dataEntrega)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Tarefas) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.codUfcd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomeUfcd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dataEntrega)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Detalhes</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
